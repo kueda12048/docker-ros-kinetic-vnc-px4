@@ -20,3 +20,7 @@ RUN source px4venv/bin/activate && \
 # install mavros.
 RUN apt-get install ros-kinetic-mavros ros-kinetic-mavros-extras -y
 RUN bash /opt/ros/kinetic/lib/mavros/install_geographiclib_datasets.sh
+
+# entrypoint
+COPY ./entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]
